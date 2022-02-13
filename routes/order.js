@@ -4,10 +4,9 @@ import { auth } from "../auth.js";
 import { addOrder, getOrder, deleteOrder,getProductById } from "../helper.js";
 
 router.route("/:id").post(async (req, res) => {
-  const {id} = req.params;
-  const product = await getProductById(id);
-  console.log("pr",product) 
-  await addOrder(product);
+  const data = req.body;
+  console.log(data)
+  await addOrder(data);
   res.status(200).send("Order Added Successfully");
 });
 
